@@ -1,0 +1,70 @@
+<svg viewBox="0 0 960 652" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+<rect x="0" y="0" width="960" height="652" fill="#ffffff"/>
+<text x="20" y="28" font-size="19" font-weight="700" fill="#0f172a">rg-pharma-lab — Small Pharmaceutical (GxP) Infrastructure</text>
+<text x="20" y="48" font-size="11.5" fill="#475569">Azure simulation · East US · 22 resources · network / data / governance (no VMs)</text>
+
+<g font-size="10" fill="#2563eb">
+<rect x="20" y="60" width="221" height="30" rx="15" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/><text x="32" y="79">Tags: Dept · GxP · Compliance</text>
+<rect x="253" y="60" width="221" height="30" rx="15" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/><text x="265" y="79">Lock: CanNotDelete on data</text>
+<rect x="486" y="60" width="221" height="30" rx="15" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/><text x="498" y="79">Policy: locations = East US</text>
+<rect x="719" y="60" width="227" height="30" rx="15" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/><text x="731" y="79">Storage: HTTPS · TLS1.2 · no public</text>
+</g>
+
+<rect x="14" y="104" width="932" height="300" rx="12" fill="none" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="30" y="126" font-size="13" font-weight="700" fill="#0f172a">vnet-pharma · 10.30.0.0/16</text>
+<text x="250" y="126" font-size="10" fill="#475569">NSG on every subnet · 8 application security groups</text>
+
+<text x="30" y="150" font-size="10" font-weight="700" fill="#475569" letter-spacing="0.5">SHARED INFRASTRUCTURE TIERS</text>
+<g>
+<rect x="30" y="158" width="160" height="62" rx="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/><text x="40" y="182" font-size="10.5" font-weight="700" fill="#0f172a">Corporate / Web</text><text x="40" y="200" font-size="9" fill="#475569">snet-corp · :443 in</text>
+<rect x="214" y="158" width="160" height="62" rx="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/><text x="224" y="182" font-size="10.5" font-weight="700" fill="#0f172a">Application</text><text x="224" y="200" font-size="9" fill="#475569">snet-app · MES / LIMS</text>
+<rect x="398" y="158" width="160" height="62" rx="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/><text x="408" y="182" font-size="10.5" font-weight="700" fill="#0f172a">Database</text><text x="408" y="200" font-size="9" fill="#475569">snet-data · :1433</text>
+<rect x="582" y="158" width="160" height="62" rx="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/><text x="592" y="182" font-size="10.5" font-weight="700" fill="#0f172a">R&amp;D / Lab</text><text x="592" y="200" font-size="9" fill="#475569">snet-research · isolated</text>
+<rect x="766" y="158" width="160" height="62" rx="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/><text x="776" y="182" font-size="10.5" font-weight="700" fill="#0f172a">Management</text><text x="776" y="200" font-size="9" fill="#475569">snet-mgmt · jump host</text>
+</g>
+<text x="193" y="184" font-size="8" fill="#475569">:8443</text>
+<line x1="190" y1="189" x2="212" y2="189" stroke="#475569" stroke-width="1.2"/><polygon points="212,186 218,189 212,192" fill="#475569"/>
+<text x="377" y="184" font-size="8" fill="#475569">:1433</text>
+<line x1="374" y1="189" x2="396" y2="189" stroke="#475569" stroke-width="1.2"/><polygon points="396,186 402,189 396,192" fill="#475569"/>
+
+<text x="30" y="242" font-size="10" font-weight="700" fill="#2563eb" letter-spacing="0.5">GxP DEPARTMENTS</text>
+<g>
+<rect x="30" y="250" width="196" height="62" rx="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/><text x="40" y="274" font-size="10.5" font-weight="700" fill="#0f172a">QA · Quality Assurance</text><text x="40" y="292" font-size="9" fill="#475569">snet-qa · asg-qa</text>
+<rect x="260" y="250" width="196" height="62" rx="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/><text x="270" y="274" font-size="10.5" font-weight="700" fill="#0f172a">QC · Quality Control</text><text x="270" y="292" font-size="9" fill="#475569">snet-qc · asg-qc</text>
+<rect x="490" y="250" width="196" height="62" rx="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/><text x="500" y="274" font-size="10.5" font-weight="700" fill="#0f172a">MFG · Manufacturing</text><text x="500" y="292" font-size="9" fill="#475569">snet-mfg · asg-mfg</text>
+<rect x="720" y="250" width="196" height="62" rx="7" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/><text x="730" y="274" font-size="10.5" font-weight="700" fill="#0f172a">PKG · Packaging</text><text x="730" y="292" font-size="9" fill="#475569">snet-pkg · asg-pkg</text>
+</g>
+<text x="458" y="276" font-size="8" fill="#2563eb">:8443</text>
+<line x1="456" y1="281" x2="488" y2="281" stroke="#2563eb" stroke-width="1.3"/><polygon points="488,278 494,281 488,284" fill="#2563eb"/>
+<text x="688" y="276" font-size="8" fill="#2563eb">:8443</text>
+<line x1="688" y1="281" x2="718" y2="281" stroke="#2563eb" stroke-width="1.3"/><polygon points="718,278 724,281 718,284" fill="#2563eb"/><polygon points="688,278 682,281 688,284" fill="#2563eb"/>
+
+<text x="30" y="340" font-size="10.5" fill="#0f172a">Shared flow:  Internet →:443 Corporate/Web →:8443 Application →:1433 Database   ·   R&amp;D + Management isolated</text>
+<text x="30" y="360" font-size="10.5" fill="#2563eb">Dept flow:  QA →:443 oversees QC · MFG · PKG     QC →:8443 MFG     MFG ↔:8443 PKG     mgmt →:22/3389 all</text>
+<text x="30" y="380" font-size="10.5" fill="#475569">Each department NSG ends with deny-all (priority 4000) — enforces GxP segregation of Quality vs Operations</text>
+
+<text x="14" y="430" font-size="13" font-weight="700" fill="#0f172a">Data, secrets &amp; monitoring</text>
+<rect x="14" y="440" width="474" height="158" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="26" y="460" font-size="11.5" font-weight="700" fill="#0f172a">Data store — stpharmadata*</text>
+<text x="26" y="476" font-size="9.5" fill="#475569">StorageV2 · LRS · HTTPS · TLS 1.2 · public access disabled</text>
+<text x="26" y="490" font-size="9.5" fill="#475569">Blob versioning + 30-day soft delete · CanNotDelete lock</text>
+<g font-size="9" fill="#0f172a">
+<rect x="26" y="499" width="148" height="22" rx="5" fill="#eff6ff" stroke="#e2e8f0"/><text x="34" y="514">research-data</text>
+<rect x="178" y="499" width="148" height="22" rx="5" fill="#eff6ff" stroke="#e2e8f0"/><text x="186" y="514">clinical-trials</text>
+<rect x="330" y="499" width="148" height="22" rx="5" fill="#eff6ff" stroke="#e2e8f0"/><text x="338" y="514">qa-records</text>
+<rect x="26" y="527" width="148" height="22" rx="5" fill="#eff6ff" stroke="#e2e8f0"/><text x="34" y="542">qc-test-results</text>
+<rect x="178" y="527" width="148" height="22" rx="5" fill="#eff6ff" stroke="#e2e8f0"/><text x="186" y="542">mfg-batch-records</text>
+<rect x="330" y="527" width="148" height="22" rx="5" fill="#eff6ff" stroke="#e2e8f0"/><text x="338" y="542">pkg-labeling</text>
+</g>
+<text x="26" y="568" font-size="9" fill="#475569">GxP record containers (one per department)</text>
+
+<rect x="502" y="440" width="204" height="74" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="514" y="460" font-size="11" font-weight="700" fill="#0f172a">Key Vault — kv-pharma</text><text x="514" y="478" font-size="9.5" fill="#475569">secrets · keys (CMK) · RBAC</text><text x="514" y="494" font-size="9.5" fill="#475569">soft-delete + 90-day retention</text>
+<rect x="502" y="524" width="204" height="74" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="514" y="544" font-size="11" font-weight="700" fill="#0f172a">Audit store — stpharmaaudit</text><text x="514" y="562" font-size="9.5" fill="#475569">container: audit-logs</text><text x="514" y="578" font-size="9.5" fill="#475569">tamper-evident archive</text>
+<rect x="720" y="440" width="226" height="158" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="732" y="460" font-size="11" font-weight="700" fill="#0f172a">Log Analytics</text><text x="732" y="478" font-size="9.5" fill="#475569">law-pharma</text><text x="732" y="498" font-size="9.5" fill="#475569">central audit logs · KQL</text><text x="732" y="518" font-size="9.5" fill="#475569">diagnostic-settings target</text><text x="732" y="538" font-size="9.5" fill="#475569">+ activity-log alerts</text>
+
+<text x="14" y="622" font-size="10" fill="#475569">Legend:  accent = GxP department  ·  arrows = allowed flow (TCP port)  ·  departments default-deny each other</text>
+<text x="14" y="640" font-size="10" fill="#475569">No VMs (free-tier) · departmental Entra RBAC groups added by an Entra admin</text>
+</svg>

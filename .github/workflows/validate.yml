@@ -1,0 +1,30 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  scripts:
+    name: Shell scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax check
+        run: |
+          bash -n deploy/deploy.sh
+          bash -n deploy/cleanup.sh
+      - name: ShellCheck (errors only)
+        uses: ludeeus/action-shellcheck@master
+        with:
+          severity: error
+          scandir: ./deploy
+
+  bicep:
+    name: Bicep build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build (validate) Bicep
+        run: az bicep build --file infra/main.bicep
