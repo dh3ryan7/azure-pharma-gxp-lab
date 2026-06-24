@@ -88,7 +88,8 @@ azure-pharma-gxp-lab/
 ├── .gitignore
 ├── .github/workflows/validate.yml   # CI: validates Bicep + shell scripts on every push
 ├── infra/
-│   └── main.bicep                   # Infrastructure-as-Code (declarative)
+│   ├── main.bicep                   # Infrastructure-as-Code (declarative)
+│   └── bastion-gxp-server.bicep     # optional add-on: Azure Bastion + GxP server
 ├── deploy/
 │   ├── deploy.sh                    # Infrastructure-as-Code (Azure CLI, idempotent)
 │   └── cleanup.sh                   # safe teardown
@@ -185,11 +186,28 @@ A companion **AZ-104 study workbook** (29 scenario-based exercises) is in
 
 ---
 
+## Secure remote access (Azure Bastion)
+
+The VNet includes a dedicated `AzureBastionSubnet`, so the lab is ready for **Azure Bastion** —
+browser-based RDP/SSH to a VM with **no public IP and no VPN**. The optional module
+[`infra/bastion-gxp-server.bicep`](infra/bastion-gxp-server.bicep) deploys Bastion plus a
+Windows "GxP server" in the QC subnet (with an NSG rule that lets Bastion reach it). A QC
+analyst signs in with Entra ID + MFA and remotes into that server through Bastion from
+anywhere — only the screen travels, the regulated data never leaves the VNet, and every
+session is logged for the audit trail.
+
+```bash
+az deployment group create -g rg-pharma-lab -f infra/bastion-gxp-server.bicep \
+  --parameters adminPassword='<Strong-P@ssw0rd-12+chars>'
+```
+
+> Azure Bastion (~$140/mo) and the VM incur cost — deploy to demo, then delete when finished.
+
 ## Notes & limitations
 
-- **No VMs** are deployed (keeps the lab free and quota-independent). The subnets model where
-  the LIMS/MES/database/instrument-control servers would live; add VMs or VM Scale Sets to the
-  appropriate subnets to extend it.
+- **No VMs** are deployed by default (keeps the lab free and quota-independent). The subnets
+  model where the LIMS/MES/database/instrument-control servers would live; the optional Bastion
+  module above adds a Windows GxP server on demand.
 - **Departmental RBAC:** in production, create Microsoft Entra groups (`GxP-QA/QC/MFG/PKG`) and
   grant each one **Storage Blob Data** access scoped to its container. Group creation requires
   an Entra administrator and is therefore left as a documented step.
