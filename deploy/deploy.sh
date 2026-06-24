@@ -33,6 +33,8 @@ for s in app=10.30.2.0/24 data=10.30.3.0/24 research=10.30.4.0/24 mgmt=10.30.5.0
   az network vnet subnet create -g "$RG" --vnet-name vnet-pharma \
     -n "snet-${s%%=*}" --address-prefixes "${s##*=}" -o none
 done
+# Bastion-ready: dedicated /26 subnet (name must be exactly AzureBastionSubnet)
+az network vnet subnet create -g "$RG" --vnet-name vnet-pharma -n AzureBastionSubnet --address-prefixes 10.30.10.0/26 -o none
 
 # 3) NSGs (one per subnet, departments tagged) + ASGs + associations --------
 for n in corp app data research mgmt; do az network nsg create -g "$RG" -n "nsg-$n" -l "$LOCATION" -o none; done
