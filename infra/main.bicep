@@ -315,6 +315,8 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
       { name: 'snet-qc', properties: { addressPrefix: '10.30.7.0/24', networkSecurityGroup: { id: nsgQc.id } } }
       { name: 'snet-mfg', properties: { addressPrefix: '10.30.8.0/24', networkSecurityGroup: { id: nsgMfg.id } } }
       { name: 'snet-pkg', properties: { addressPrefix: '10.30.9.0/24', networkSecurityGroup: { id: nsgPkg.id } } }
+      // Bastion-ready: dedicated /26 subnet, must be named exactly 'AzureBastionSubnet'
+      { name: 'AzureBastionSubnet', properties: { addressPrefix: '10.30.10.0/26' } }
     ]
   }
 }
